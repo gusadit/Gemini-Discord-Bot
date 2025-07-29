@@ -1,18 +1,22 @@
 {
-  "type": "module",
-  "dependencies": {
-    "@google/generative-ai": "*",
-    "axios": "*",
-    "discord.js": "*",
-    "dotenv": "*",
-    "fs": "*",
-    "sharp": "*",
-    "office-text-extractor": "*",
-    "youtube-transcript": "*",
-    "node-os-utils": "*",
-    "mathjs": "*"
-  },
-  "scripts": {
-    "start": "node index.js"
-  }
+    "type": "module",
+    "dependencies": {
+        "@google/generative-ai": "*",
+        "axios": "*",
+        "discord.js": "*",
+        "dotenv": "*",
+        "fs": "*",
+        "mathjs": "*",
+        "node-os-utils": "*",
+        "office-text-extractor": "*",
+        "pm2": "^6.0.8",
+        "sharp": "*",
+        "youtube-transcript": "*"
+    },
+    "scripts": {
+        "start": "pm2 start index.js --name 'gemini-discord-bot' --watch --ignore-watch='node_modules','logs','config','package.json'",
+        "stop": "pm2 stop gemini-discord-bot",
+        "restart": "pm2 restart gemini-discord-bot",
+        "delete": "pm2 delete gemini-discord-bot"
+    }
 }
